@@ -1,0 +1,70 @@
+$background_dark: #333
+$color_dark: #eee
+$background_light: #eee
+$color_light: #333
+$background_root_container: #6086a5
+$background_blog_eintrag: darken($background_root_container, 20%)
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
+    
+
+@mixin noMarginAndPadding()
+    margin: 0
+    padding: 0
+    
+html
+    background: $background_dark
+    color: $color_dark
+    font-family: 'Roboto', sans-serif
+    @include noMarginAndPadding()
+
+    body
+        display: grid
+        align-items: center
+        justify-content: center
+        @include noMarginAndPadding()
+
+        div
+            @include noMarginAndPadding()
+            padding: 1em
+        
+        div.blog
+            background: $background_root_container
+            display: grid
+            grid-template-columns: 3fr 1fr
+            gap: 1em
+            
+            div.header
+                text-align: center
+                //grid-column: 1/3
+                //grid-area: header
+                grid-column-start: 1
+                grid-column-end: 3
+                
+
+            div.blog-eintrag
+                background: $background_blog_eintrag
+                //grid-column: 1/2
+                grid-column-start: 1
+                grid-column-end: 2 
+            
+            div.login
+                background: $background_blog_eintrag
+                grid-column-start: 2
+                grid-column-end: 3
+                grid-row-start: 2
+                grid-row-end: span 2
+                //grid-column: 2/3
+                //grid-area: login
+                form
+                    display: flex
+                    flex-wrap: wrap
+                    input
+                        width: 100%
+                        padding: .5em
+                        margin: .5em
+                        box-sizing: border-box
+
+
+
+
