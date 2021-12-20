@@ -2,7 +2,6 @@
     require_once 'includes/funktionen.inc.php';
     session_start();
     $blogeintraege = hole_eintraege();
-    //var_dump($blogeintraege);
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -33,7 +32,45 @@
                         ?>
                         <h1><?=$data;?></h1>
                         <?php
-                    }else{
+
+                    }elseif (strcmp($key,"preis")==0) {
+                    ?>
+                    <p><?=$data;?> €</p>
+                    <?php
+                }
+
+                elseif(strcmp($key,"erstelldatum")==0||strcmp($key,"vorname")==0||strcmp($key,"nachname")==0||strcmp($key,"email")==0||strcmp($key,"telefon")==0){
+                    if(strcmp($key,"erstelldatum")==0){
+                        ?>
+                        <p>erstellt am <?=$data;?>
+                        <?php
+                    }
+                    elseif(strcmp($key,"vorname")==0){
+                        ?>
+                         von <?=$data;?>
+                        <?php
+                    }
+                    elseif(strcmp($key,"nachname")==0){
+                        ?>
+                         <?=$data;?></p>
+                        <?php
+                    }elseif(strcmp($key,"email")){
+                        ?>
+                        <p>Email: <?=$data;?></p>
+                        <?php
+                        }
+                    elseif(strcmp($key,"telefon")==0){
+                        ?>
+                        <p>Telefon: <?=$data;?></p>
+                        <?php
+                    }
+                    
+                    ?>
+                    <?php
+                }
+                    
+                
+                else{
                     ?>
                     <p><?=$data;?></p>
                     <?php
