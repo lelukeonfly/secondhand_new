@@ -36,6 +36,30 @@
 }
 
 
+function getZustand()
+{
+    $db_con = get_db_connection();
+    $query = "SELECT zustand.id, zustand.name FROM zustand";
+    $statement = $db_con->query($query);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function speichereEintrag($eintrag) {
+
+    $db = get_db_connection();
+    var_dump($eintrag);
+    var_dump($_SESSION);
+    echo get_benutzer_id($_SESSION['eingeloggt']);
+
+    $query = "INSERT INTO artikel(bezeichnung, beschreibung, preis, erstelldatum, personen_id, zustand_id) VALUES ('".$eintrag['bezeichnung']."','".$eintrag['beschreibung']."',".$eintrag['preis'].",'".date("Y-m-d H:i:s",$eintrag['erstellt_am'])."',".get_benutzer_id($_SESSION['eingeloggt']).",".$eintrag['zustand'].")";
+
+    #echo $query;
+
+    $db->query($query);
+
+}
+
 #function get_user_login($username,$passwort){
 #    $db_connection = get_db_connection();
 
@@ -47,14 +71,14 @@
 #    return (bool)$daten;
 #}
 
-#function get_benutzer_id($username){
-#    $db_connection = get_db_connection();
-#
-#    $query = "SELECT person.email FROM person WHERE person.email = '$username'";
-#    $statement = $db_connection->query($query);
-#    $daten = $statement->fetch();
-#    return $daten['email'];
-#}
+function get_benutzer_id($username){
+    $db_connection = get_db_connection();
+
+    $query = "SELECT personen.id FROM personen WHERE personen.anmeldename = '$username'";
+    $statement = $db_connection->query($query);
+    $daten = $statement->fetch(PDO::FETCH_ASSOC);
+    return $daten['id'];
+}
 
 function logge_aus() {
     unset($_SESSION['eingeloggt']);
