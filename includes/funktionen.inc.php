@@ -13,7 +13,7 @@
     $database = "secondhand";
     $host = "localhost";
     $user = "root";
-    $pwd = "";
+    $pwd = "root";
     $port = "3306";
     $db_connection = new PDO("mysql:host=$host;dbname=$database;port=$port",$user,$pwd);
     
