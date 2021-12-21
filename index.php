@@ -68,9 +68,15 @@
                 <?php
             }
 
-            require_once 'includes/login.inc.php';
-            
-            #require_once 'includes/menu.inc.php';
+                /**
+                 * Zeige das Login-Formular, wenn der Benutzer noch nicht eingeloggt ist,
+                 * ansonsten das Hauptmenu.
+                 */	 
+                if (ist_eingeloggt()) {
+                    require_once 'includes/menu.inc.php';
+                } else {
+                	require_once 'includes/login.inc.php';
+                } 
         ?>
 
         </main>
