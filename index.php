@@ -2,6 +2,7 @@
     require_once 'includes/funktionen.inc.php';
     session_start();
     $blogeintraege = hole_eintraege();
+    var_dump($_GET);
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -29,55 +30,48 @@
                 <?php
                 foreach($blogeintrag as $key => $data){
                     if(strcmp($key,"bezeichnung")==0){?>
-                        <h1><?=$data;?></h1><?php
+                        <h1><?=htmlspecialchars($data);?></h1><?php
+                    }elseif(strcmp($key,"beschreibung")==0){?>
+                        <p><?=htmlspecialchars($data);?></p><?php
                     }elseif (strcmp($key,"preis")==0) {
                     ?>
-                    <p>Preis: <?=$data;?> €</p>
+                    <p>Preis: <?=htmlspecialchars($data);?> €</p>
                     <?php
                     }elseif (strcmp($key,"name")==0){
                     ?>
-                    <p>Zustand: <?=$data;?></p>
+                    <p>Zustand: <?=htmlspecialchars($data);?></p>
                     <?php
                     }elseif(strcmp($key,"erstelldatum")==0||strcmp($key,"vorname")==0||strcmp($key,"nachname")==0||strcmp($key,"email")==0||strcmp($key,"telefon")==0){
                     if(strcmp($key,"erstelldatum")==0){
                         ?><hr />
-                        <p>erstellt am <?=date('d M Y H:i:s',strtotime($data));?><?php
+                        <p>erstellt am <?=date('d.m.Y H:i:s',strtotime(htmlspecialchars($data)));?><?php
                     }elseif(strcmp($key,"vorname")==0){
                         ?>
-                         von <?=$data;?>
+                         von <?=htmlspecialchars($data);?>
                         <?php
                     }elseif(strcmp($key,"nachname")==0){
                         ?>
-                         <?=$data;?></p><?php
+                         <?=htmlspecialchars($data);?></p><?php
                     }elseif(strcmp($key,"email")==0){
                         ?>
                         <hr />
-                        <p>Kontaktdaten:</p>
-                        <p>Email: <?=$data;?></p><?php
+                        <h3 class="right">Kontaktdaten:</h4>
+                        <p class="right">Email: <?=htmlspecialchars($data);?></p><?php
                         }elseif(strcmp($key,"telefon")==0){
                         ?>
-                        <p>Telefon: <?=$data;?></p><?php
-                    }?><?php
-                }else{?>
-                    <p><?=$data;?></p>
-                    <?php
+                        <p class="right">Telefon: <?=htmlspecialchars($data);?></p><?php
+                    }
                 }
             }
                 ?>
                 </div>
                 <?php
             }
+
+            require_once 'includes/login.inc.php';
+            
+            #require_once 'includes/menu.inc.php';
         ?>
-
-        <div class="login">
-            <form action="#" method="POST">
-                <input type="text" name="username" id="username" placeholder="username">
-                <input type="text" name="username" id="username" placeholder="password">
-                <input type="submit" value="login">
-            </form>
-        </div>
-
-
 
     </div>
 

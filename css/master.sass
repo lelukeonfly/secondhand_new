@@ -27,6 +27,7 @@ html
         div
             @include noMarginAndPadding()
             padding: 1em
+            border-radius: 1em
         
         div.blog
             background: $background_root_container
@@ -43,12 +44,17 @@ html
                 
 
             div.blog-eintrag
+                display: grid
                 background: $background_blog_eintrag
                 //grid-column: 1/2
                 grid-column-start: 1
                 grid-column-end: 2 
 
+                .right
+                    justify-self: end
+
                 hr
+                    width: 100%
                     border-top: 1px solid #fff
 
             
@@ -63,11 +69,31 @@ html
                 & form
                     display: flex
                     flex-wrap: wrap
+                    gap: 4em
                     & input
                         width: 100%
                         padding: .5em
-                        margin: 1em 0
                         box-sizing: border-box
+            
+            div.menu
+                background: $background_blog_eintrag
+                grid-column-start: 2
+                grid-column-end: 3
+                grid-row-start: 2
+                display: flex
+                flex-wrap: wrap
+                gap: 4em
+                
+                div
+                    width: 100%
+                    justify-self: center
+                    background: $background_root_container
+                    display: grid
+                    justify-content: center
+                    align-content: center
+                    a
+                        text-decoration: none
+                        color: $color_dark
 
 
 
