@@ -18,7 +18,7 @@
         </div>
 
         <div class="blog-eintrag">
-            <form action="fw_trage_ein.php" method="POST">
+            <form action="fw_trage_ein.php" method="POST" enctype="multitype/form-data">
                 <input type="text" name="bezeichnung" placeholder="Bezeichnung" required="required" />
                 <textarea name="beschreibung" id="content" cols="30" rows="10" placeholder="Beschreibung" required="required" /></textarea>
                 <input type="number" name="preis" id="preis" placeholder="Preis" required="required" />
@@ -29,6 +29,7 @@
                     }
                 ?>
                 </select>
+                <input type="file" name="file" id="file">
                 <input type="submit" value="eintragen" name="submit" required="required" />
             </form>
         </div>

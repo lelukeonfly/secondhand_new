@@ -31,7 +31,10 @@
                 foreach($blogeintrag as $key => $data){
                     if(strcmp($key,"bezeichnung")==0){?>
                         <h1><?=$data;?></h1><?php
-                    }elseif(strcmp($key,"beschreibung")==0){?>
+                    }elseif (strcmp($key,"id")==0) {?>
+                        <img src="<?=$data;?>.endung" alt=""><?php
+                    }
+                    elseif(strcmp($key,"beschreibung")==0){?>
                         <p><?=$data;?></p><?php
                     }elseif (strcmp($key,"preis")==0) {
                     ?>

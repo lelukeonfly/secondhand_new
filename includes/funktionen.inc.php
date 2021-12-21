@@ -3,7 +3,7 @@
     function hole_eintraege()
     {
         $db_connection = get_db_connection();
-        $query = "SELECT artikel.bezeichnung, artikel.beschreibung, artikel.preis, zustand.name, artikel.erstelldatum, personen.vorname, personen.nachname, personen.email, personen.telefon FROM artikel JOIN personen ON personen.id = artikel.personen_id JOIN zustand ON zustand.id = artikel.zustand_id";
+        $query = "SELECT artikel.id, artikel.bezeichnung, artikel.beschreibung, artikel.preis, zustand.name, artikel.erstelldatum, personen.vorname, personen.nachname, personen.email, personen.telefon FROM artikel JOIN personen ON personen.id = artikel.personen_id JOIN zustand ON zustand.id = artikel.zustand_id";
         $statement = $db_connection->query($query);
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -85,6 +85,13 @@ function logge_aus() {
 #    unset($_SESSION['id']);
 }
 
+function getBlotId()
+{
+    $db = get_db_connection();
+    $query = "SELECT artikel.id FROM artikel WHERE artikel.erstelldatum = (SELECT MAX(artikel.erstelldatum) FROM artikel)";
+    $statement = $db->query($query);
+    return $statement->fetch(PDO::FETCH_ASSOC);
+}
 
 #function loeschen($beitrag_id)
 #{

@@ -25,9 +25,47 @@
         'erstellt_am' => time()
     );
     
-
     speichereEintrag($eintrag);
-    var_dump($eintrag);     
+
+        if(isset($_POST['submit'])){
+        $file = $_FILES['file'];
+
+        #var_dump($file);
+
+        $fileName = $file['name'];
+        $fileTmpName = $file['tmp_name'];
+        $fileSize = $file['size'];
+        $fileError = $file['error'];
+        $fileType = $file['type'];
+
+        $fileExtension = explode('.', $fileName);
+        $fileActualExtension = strtolower(end($fileExtension));
+
+        #echo $fileActualExtension;
+
+        $allowedTypes = array('jpg', 'jpeg', 'png', 'gif');
+
+        if (in_array($fileActualExtension, $allowedTypes)) {
+            if ($fileError === 0) {
+                #1000000 = 1MB
+                if ($fileSize < 1000000) {
+                    $fileNameNew = getBlogId().".".$fileActualExtension;
+                    #echo $fileNameNew;
+                    $fileDestination = 'image/'.$fileNameNew;
+                    #echo $fileDestination;
+                    move_uploaded_file($fileTmpName, $fileDestination);
+                    #header("Location:index.php?uploadsuccess");
+                }else{
+                    #echo "too big";
+                }
+            }else{
+                #echo "Uploading error";
+            }
+        }else{
+            #echo "wrong type";
+        }
+    }
+
 ?>
 <!DOCTYPE html>
 
