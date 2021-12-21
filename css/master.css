@@ -27,23 +27,28 @@ html body div {
   border-radius: 1em;
 }
 
-html body div.blog {
+html body main {
   background: #6086a5;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 3fr 1fr;
       grid-template-columns: 3fr 1fr;
   gap: 1em;
+  padding: 1em;
 }
 
-html body div.blog div.header {
+html body main div.header {
   text-align: center;
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 3;
 }
 
-html body div.blog div.blog-eintrag {
+html body main div.header h1 {
+  font-size: 3em;
+}
+
+html body main div.blog-eintrag {
   display: -ms-grid;
   display: grid;
   background: #395266;
@@ -52,17 +57,17 @@ html body div.blog div.blog-eintrag {
   grid-column-end: 2;
 }
 
-html body div.blog div.blog-eintrag .right {
+html body main div.blog-eintrag .right {
   -ms-grid-column-align: end;
       justify-self: end;
 }
 
-html body div.blog div.blog-eintrag hr {
+html body main div.blog-eintrag hr {
   width: 100%;
   border-top: 1px solid #fff;
 }
 
-html body div.blog div.login {
+html body main div.login {
   background: #395266;
   -ms-grid-column: 2;
       grid-column-start: 2;
@@ -71,7 +76,7 @@ html body div.blog div.login {
       grid-row-start: 2;
 }
 
-html body div.blog div.login form {
+html body main div.login form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,14 +85,14 @@ html body div.blog div.login form {
   gap: 4em;
 }
 
-html body div.blog div.login form input {
+html body main div.login form input {
   width: 100%;
   padding: .5em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-html body div.blog div.menu {
+html body main div.menu {
   background: #395266;
   -ms-grid-column: 2;
       grid-column-start: 2;
@@ -102,7 +107,7 @@ html body div.blog div.menu {
   gap: 4em;
 }
 
-html body div.blog div.menu div {
+html body main div.menu div {
   width: 100%;
   -ms-grid-column-align: center;
       justify-self: center;
@@ -116,7 +121,7 @@ html body div.blog div.menu div {
       align-content: center;
 }
 
-html body div.blog div.menu div a {
+html body main div.menu div a {
   text-decoration: none;
   color: #eee;
 }

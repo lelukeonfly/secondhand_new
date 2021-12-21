@@ -6,7 +6,7 @@ require_once 'includes/funktionen.inc.php';
     // Prüfe alle Benutzer, ob einer mit den übergebenen Daten übereinstimmt
         $db = get_db_connection();
         $fehler="";
-        var_dump($_POST);
+        #var_dump($_POST);
         
     if(empty(trim($_POST['username'])) || empty(trim($_POST['password']))){
 
@@ -30,5 +30,9 @@ require_once 'includes/funktionen.inc.php';
      * sehen, wenn die Daten falsch waren, oder das Hauptmenu, wenn der Login
      * erfolgreich war. 
      */
-    header("Location: index.php?fehlermeldung=$fehler");
+    if(empty($fehler)){
+        header("Location: index.php");
+    }else{
+        header("Location: index.php?fehlermeldung=$fehler");
+    }
 ?>

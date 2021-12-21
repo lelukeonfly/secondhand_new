@@ -2,7 +2,7 @@
     require_once 'includes/funktionen.inc.php';
     session_start();
     $blogeintraege = hole_eintraege();
-    var_dump($_GET);
+    #var_dump($_GET);
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -15,7 +15,7 @@
 </head>
 <body>
     
-    <div class="blog">
+    <main>
         
         <div class="header">
             <h1>Secondhand</h1>
@@ -73,7 +73,7 @@
             #require_once 'includes/menu.inc.php';
         ?>
 
-    </div>
+        </main>
 
 </body>
 </html>

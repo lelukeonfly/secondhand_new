@@ -29,11 +29,12 @@ html
             padding: 1em
             border-radius: 1em
         
-        div.blog
+        main
             background: $background_root_container
             display: grid
             grid-template-columns: 3fr 1fr
             gap: 1em
+            padding: 1em
             
             div.header
                 text-align: center
@@ -41,6 +42,8 @@ html
                 //grid-area: header
                 grid-column-start: 1
                 grid-column-end: 3
+                h1
+                    font-size: 3em
                 
 
             div.blog-eintrag
@@ -94,7 +97,5 @@ html
                     a
                         text-decoration: none
                         color: $color_dark
-
-
 
 
