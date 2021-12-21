@@ -13,26 +13,27 @@
     $database = "secondhand";
     $host = "localhost";
     $user = "root";
-    $pwd = "root";
+    $pwd = "";
     $port = "3306";
     $db_connection = new PDO("mysql:host=$host;dbname=$database;port=$port",$user,$pwd);
     
     return $db_connection;
     }
     
-#    function ist_eingeloggt() {
-#    $erg = false;
-#    if (isset($_SESSION['eingeloggt'])) {
-#        if (!empty($_SESSION['eingeloggt']))
-#            $erg = true;
-#        }
-#    return $erg;
-#    }
     
-#    function logge_ein($benutzername) {
-#    $_SESSION['eingeloggt'] = $benutzername;
+    function ist_eingeloggt() {
+    $erg = false;
+    if (isset($_SESSION['eingeloggt'])) {
+        if (!empty($_SESSION['eingeloggt']))
+            $erg = true;
+        }
+    return $erg;
+    }
+    
+    function logge_ein($benutzername) {
+    $_SESSION['eingeloggt'] = $benutzername;
 #    $_SESSION['id'] = get_benutzer_id($benutzername);
-#}
+}
 
 
 #function get_user_login($username,$passwort){
@@ -55,10 +56,10 @@
 #    return $daten['email'];
 #}
 
-#function logge_aus() {
-#    unset($_SESSION['eingeloggt']);
+function logge_aus() {
+    unset($_SESSION['eingeloggt']);
 #    unset($_SESSION['id']);
-#}
+}
 
 
 #function loeschen($beitrag_id)

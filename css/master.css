@@ -49,6 +49,10 @@ html body div.blog div.blog-eintrag {
   grid-column-end: 2;
 }
 
+html body div.blog div.blog-eintrag hr {
+  border-top: 1px solid #fff;
+}
+
 html body div.blog div.login {
   background: #395266;
   -ms-grid-column: 2;

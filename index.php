@@ -28,90 +28,46 @@
                 <div class="blog-eintrag">
                 <?php
                 foreach($blogeintrag as $key => $data){
-                    if(strcmp($key,"bezeichnung")==0){
-                        ?>
-                        <h1><?=$data;?></h1>
-                        <?php
-
+                    if(strcmp($key,"bezeichnung")==0){?>
+                        <h1><?=$data;?></h1><?php
                     }elseif (strcmp($key,"preis")==0) {
                     ?>
-                    <p><?=$data;?> €</p>
+                    <p>Preis: <?=$data;?> €</p>
                     <?php
-                }
-
-                elseif(strcmp($key,"erstelldatum")==0||strcmp($key,"vorname")==0||strcmp($key,"nachname")==0||strcmp($key,"email")==0||strcmp($key,"telefon")==0){
+                    }elseif (strcmp($key,"name")==0){
+                    ?>
+                    <p>Zustand: <?=$data;?></p>
+                    <?php
+                    }elseif(strcmp($key,"erstelldatum")==0||strcmp($key,"vorname")==0||strcmp($key,"nachname")==0||strcmp($key,"email")==0||strcmp($key,"telefon")==0){
                     if(strcmp($key,"erstelldatum")==0){
-                        ?>
-                        <p>erstellt am <?=$data;?>
-                        <?php
-                    }
-                    elseif(strcmp($key,"vorname")==0){
+                        ?><hr />
+                        <p>erstellt am <?=date('d M Y H:i:s',strtotime($data));?><?php
+                    }elseif(strcmp($key,"vorname")==0){
                         ?>
                          von <?=$data;?>
                         <?php
-                    }
-                    elseif(strcmp($key,"nachname")==0){
+                    }elseif(strcmp($key,"nachname")==0){
                         ?>
-                         <?=$data;?></p>
-                        <?php
-                    }elseif(strcmp($key,"email")){
+                         <?=$data;?></p><?php
+                    }elseif(strcmp($key,"email")==0){
                         ?>
-                        <p>Email: <?=$data;?></p>
-                        <?php
-                        }
-                    elseif(strcmp($key,"telefon")==0){
+                        <hr />
+                        <p>Kontaktdaten:</p>
+                        <p>Email: <?=$data;?></p><?php
+                        }elseif(strcmp($key,"telefon")==0){
                         ?>
-                        <p>Telefon: <?=$data;?></p>
-                        <?php
-                    }
-                    
-                    ?>
-                    <?php
-                }
-                    
-                
-                else{
-                    ?>
+                        <p>Telefon: <?=$data;?></p><?php
+                    }?><?php
+                }else{?>
                     <p><?=$data;?></p>
                     <?php
                 }
             }
                 ?>
-                
                 </div>
                 <?php
             }
         ?>
-
-
-
-<!--         <div class="blog-eintrag">
-
-            <h1>Titel</h1>
-            <p>content</p>
-
-        </div>
-
-        <div class="blog-eintrag">
-
-            <h1>Titel</h1>
-            <p>content</p>
-
-        </div>
-
-       <div class="blog-eintrag">
-
-            <h1>Titel</h1>
-            <p>content</p>
-
-        </div>
-
-        <div class="blog-eintrag">
-
-            <h1>Titel</h1>
-            <p>content</p>
-
-        </div>-->
 
         <div class="login">
             <form action="#" method="POST">
