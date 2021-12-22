@@ -13,7 +13,7 @@
     $database = "secondhand";
     $host = "localhost";
     $user = "root";
-    $pwd = "root";
+    $pwd = "";
     $port = "3306";
     $db_connection = new PDO("mysql:host=$host;dbname=$database;port=$port",$user,$pwd);
     
@@ -85,7 +85,7 @@ function logge_aus() {
 #    unset($_SESSION['id']);
 }
 
-function getBlotId()
+function getBlogId()
 {
     $db = get_db_connection();
     $query = "SELECT artikel.id FROM artikel WHERE artikel.erstelldatum = (SELECT MAX(artikel.erstelldatum) FROM artikel)";
